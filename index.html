@@ -1,0 +1,244 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rao Jatin - Developer Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background: linear-gradient(to bottom, #000, #1a1a1a);
+      color: #d0ffd6;
+      font-family: 'Orbitron', sans-serif;
+      scroll-behavior: smooth;
+    }
+    section {
+      padding: 60px 20px;
+      text-align: center;
+    }
+    .blade-animation {
+      background: #000;
+      color: #a8ff60;
+      padding: 20px 10px;
+      text-align: center;
+      font-size: 1.1em;
+      border-bottom: 2px solid #2ecc71;
+      overflow: hidden;
+    }
+    .blade-text {
+      display: inline-block;
+      white-space: nowrap;
+      animation: bladeScroll 30s linear infinite;
+    }
+    @keyframes bladeScroll {
+      0% { transform: translateX(100%); }
+      100% { transform: translateX(-100%); }
+    }
+    .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: #000;
+    }
+    .hero h1 {
+      font-size: 3em;
+      color: #a8ff60;
+      animation: slideIn 1s ease forwards;
+    }
+    .hero p {
+      font-size: 1.5em;
+      margin: 10px 0;
+      color: #ccc;
+      animation: fadeIn 2s ease forwards;
+    }
+    .hero a {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 25px;
+      font-size: 1em;
+      color: #000;
+      background: #a8ff60;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: 0.3s;
+    }
+    .hero a:hover {
+      background: #76ff03;
+    }
+    @keyframes slideIn {
+      from { transform: translateY(-50px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    .about img {
+      max-width: 200px;
+      border-radius: 50%;
+      border: 5px solid #a8ff60;
+      margin-bottom: 20px;
+    }
+    .skills {
+      margin-top: 20px;
+      font-size: 1.1em;
+      line-height: 1.6;
+      color: #aaa;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+    .card {
+      background-color: #1a1a1a;
+      border: 2px solid #2ecc71;
+      border-radius: 12px;
+      padding: 20px;
+      transition: transform 0.3s ease;
+    }
+    .card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px #2ecc71;
+    }
+    .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+    .card h3 {
+      margin-top: 15px;
+      color: #a8ff60;
+    }
+    .card p {
+      font-size: 14px;
+      color: #ccc;
+    }
+    .portfolio-marquee {
+      overflow: hidden;
+      white-space: nowrap;
+      background: #111;
+      padding: 15px 0;
+      margin-top: 60px;
+      border-top: 2px solid #2ecc71;
+      border-bottom: 2px solid #2ecc71;
+    }
+    .portfolio-marquee span {
+      display: inline-block;
+      padding-right: 50px;
+      font-size: 1.2em;
+      color: #76ff03;
+      animation: marquee 20s linear infinite;
+    }
+    @keyframes marquee {
+      from { transform: translateX(100%); }
+      to { transform: translateX(-100%); }
+    }
+    .contact {
+      padding: 60px 20px;
+      text-align: center;
+    }
+    .contact a {
+      display: block;
+      margin: 10px 0;
+      color: #76ff03;
+      text-decoration: none;
+    }
+    footer {
+      padding: 20px;
+      text-align: center;
+      background: linear-gradient(45deg, #1a1a1a, #0f0f0f);
+      color: #ccc;
+      font-size: 0.9em;
+    }
+  </style>
+</head>
+<body>
+  <!-- Blade Animation -->
+  <div class="blade-animation">
+    <div class="blade-text">
+      Rao Jatin Presents — Website Building (5+ Years Experience), Video Editing, Android Development, Portfolio Design & More — Rao Jatin Presents — Website Building (5+ Years Experience), Video Editing, Android Development, Portfolio Design & More — 
+    </div>
+  </div>  <!-- Hero Section -->  <section class="hero">
+    <h1>Hi, I'm Rao Jatin</h1>
+    <p>A Passionate Web & App Developer</p>
+    <a href="#about">View Portfolio</a>
+
+<!-- Portfolio Request Form -->
+<form action="https://formspree.io/f/meoawbkn" method="POST" style="max-width: 500px; margin: 30px auto; background: #1e1e1e; padding: 25px; border-radius: 10px; box-shadow: 0 0 20px rgba(0,255,100,0.3); color: white;">
+  <h2 style="text-align:center; margin-bottom: 20px;">Request a Service</h2>
+
+  <label for="service">Select Service:</label>
+  <select name="Service" id="service" required style="width:100%; padding: 10px; margin: 10px 0 20px; border-radius: 5px; border: none;">
+    <option value="Website Building">Website Building</option>
+    <option value="Video Editing">Video Editing</option>
+    <option value="Photo Editing">Photo Editing</option>
+    <option value="Others">Others</option>
+  </select>
+
+  <label for="mobile">Fill Your Mobile Number:</label>
+  <input type="tel" name="Mobile Number" id="mobile" required pattern="[0-9]{10}" placeholder="Enter 10-digit mobile number" style="width:100%; padding: 10px; margin: 10px 0 20px; border-radius: 5px; border: none;">
+
+  <button type="submit" style="background: linear-gradient(to right, #00ff88, #00cc66); color: black; border: none; padding: 12px 20px; width: 100%; border-radius: 5px; font-weight: bold; cursor: pointer;">Submit</button>
+</form>
+  </section>  <!-- About Section -->  <section class="about" id="about">
+    <img src="https://i.ibb.co/VP4P4Z2/Picsart-25-04-17-15-09-20-787.jpg" alt="Rao Jatin">
+    <h2>About Me</h2>
+    <p>Developer | Website Maker | Android Guru</p>
+    <div class="skills">
+      My Skills Encompass Both Front-End And Back-End Development. My True Passion Lies Crafting Engaging Android Applications That Solve Real-World Problems And Improve People's Lives.<br><br>
+      <strong>Programming Languages:</strong> HTML, CSS, JavaScript, React, Node.js, Java, Python, C, C++, C#, Bash, PHP
+    </div>
+  </section>  <!-- Services Section -->  <section class="services" id="services">
+    <h2>My Services</h2>
+    <div class="services">
+      <div class="card">
+        <img src="https://i.ibb.co/fzfN1DcB/vidiq-thumbnail-1.jpg" alt="Website Development">
+        <h3>Website Development</h3>
+        <p>2000₹ per website (Domain not included)</p>
+      </div>
+      <div class="card">
+        <img src="https://i.ibb.co/3yF1Y13C/vidiq-thumbnail-1-1.jpg" alt="Video Editing">
+        <h3>Video Editing</h3>
+        <p>15 sec - 100₹<br>30 sec - 200₹<br>Full video - 699₹ (Contact personally)</p>
+      </div>
+      <div class="card">
+        <img src="https://i.ibb.co/qFgkJFgw/vidiq-thumbnail-1-2.jpg alt="Photo Editing">
+        <h3>Photo Editing</h3>
+        <p>DM for pricing</p>
+      </div>
+    </div>
+  </section>  <!-- Portfolio Marquee -->  <div class="portfolio-marquee">
+    <span>Dribble</span>
+    <span>Behance</span>
+    <span>GitHub</span>
+    <span>CodePen</span>
+    <span>Nottmodz</span>
+    <span>MobieArena</span>
+    <span>Fiverr</span>
+    <span>Upwork</span>
+    <span>LinkedIn</span>
+  </div>  <!-- Contact Section -->  <section class="contact" id="contact">
+    <h2>Contact Me</h2>
+    <a href="mailto:jatinhelpline89@gmail.com">Email: jatinhelpline89@gmail.com</a>
+    <a href="https://www.instagram.com/noturjatin?igsh=azNnaW0ydzl1a240">Instagram</a>
+    <a href="https://t.me/@raojatinhere">Telegram</a>
+    <a href="https://wa.me/919499473347">WhatsApp</a>
+    <p>Location: Connaught Place, Delhi, India</p>
+  </section>  <!-- Footer -->  <footer>
+    Calm Team Nottmodz © 2025 — All rights reserved<br>
+    <a href="#">Privacy Policy</a>
+  </footer>
+</body>
+</html>
