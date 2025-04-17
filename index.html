@@ -165,14 +165,9 @@
   </style>
 </head>
 <body>
-  <!-- Blade Animation -->
-  <div class="blade-animation">
-    <div class="blade-text">
-      Rao Jatin Presents — Website Building (5+ Years Experience), Video Editing, Android Development, Portfolio Design & More — Rao Jatin Presents — Website Building (5+ Years Experience), Video Editing, Android Development, Portfolio Design & More — 
-    </div>
   </div>  <!-- Hero Section -->  <section class="hero">
-    <h1>Hi, I'm Rao Jatin</h1>
     <p>A Passionate Web & App Developer</p>
+    <h1>Rao Jatin</h1>
     <a href="#about">View Portfolio</a>
 
 <!-- Portfolio Request Form -->
@@ -192,33 +187,85 @@
 
   <button type="submit" style="background: linear-gradient(to right, #00ff88, #00cc66); color: black; border: none; padding: 12px 20px; width: 100%; border-radius: 5px; font-weight: bold; cursor: pointer;">Submit</button>
 </form>
-  </section>  <!-- About Section -->  <section class="about" id="about">
-    <img src="https://i.ibb.co/VP4P4Z2/Picsart-25-04-17-15-09-20-787.jpg" alt="Rao Jatin">
-    <h2>About Me</h2>
-    <p>Developer | Website Maker | Android Guru</p>
-    <div class="skills">
-      My Skills Encompass Both Front-End And Back-End Development. My True Passion Lies Crafting Engaging Android Applications That Solve Real-World Problems And Improve People's Lives.<br><br>
-      <strong>Programming Languages:</strong> HTML, CSS, JavaScript, React, Node.js, Java, Python, C, C++, C#, Bash, PHP
+<!-- ABOUT SECTION -->
+<section class="about" id="about" onclick="openAboutPopup()" style="padding: 60px 20px; text-align: center; background: linear-gradient(145deg, #111, #1a1a1a); color: white; cursor: pointer;">
+  <img src="https://i.ibb.co/VP4P4Z2/Picsart-25-04-17-15-09-20-787.jpg" alt="Rao Jatin" style="width: 160px; height: 160px; object-fit: cover; border-radius: 50%; border: 3px solid #0f0; box-shadow: 0 0 15px rgba(0,255,100,0.4); margin-bottom: 20px; animation: float 3s ease-in-out infinite;">
+  <h2 style="font-size: 2.5rem; margin-bottom: 10px; color: #0f0;">About Me</h2>
+  <p style="font-size: 1.2rem; margin-bottom: 20px;">Developer | Website Maker | Android Guru</p>
+  <div class="skills" style="font-size: 1rem; line-height: 1.7; max-width: 700px; margin: auto;">
+    <strong style="color: #0f0;">Programming Languages:</strong> HTML, CSS, JavaScript, React, Node.js, Java, Python, C, C++, C#, Bash, PHP
+  </div>
+</section>
+
+<!-- ABOUT POPUP -->
+<div id="aboutPopup" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 9999; justify-content: center; align-items: center;">
+  <div style="background: #1a1a1a; border-radius: 15px; max-width: 700px; width: 90%; padding: 30px; display: flex; align-items: center; position: relative; box-shadow: 0 0 30px rgba(0,255,0,0.2);">
+    <span onclick="closeAboutPopup()" style="position: absolute; top: 15px; left: 20px; font-size: 22px; color: red; cursor: pointer;">&times;</span>
+    <img src="https://i.ibb.co/VP4P4Z2/Picsart-25-04-17-15-09-20-787.jpg" alt="Rao Jatin" style="width: 150px; height: 150px; object-fit: cover; border-radius: 15px; margin-right: 25px; border: 2px solid #0f0;">
+    <div style="color: white;">
+      <h2 style="color: #0f0; margin-top: 0;">Rao Jatin</h2>
+      <ul style="list-style: none; padding-left: 0; line-height: 1.8;">
+        <li>• Developer</li>
+        <li>• Editor</li>
+        <li>• From Haryana</li>
+        <li>• B.Sc Computer Science</li>
+        <li>• Single</li>
+        <li>• Hindu (Yadav)</li>
+      </ul>
     </div>
+  </div>
+</div>
+
+<!-- FLOAT ANIMATION -->
+<style>
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}
+</style>
+
+<!-- POPUP SCRIPT -->
+<script>
+function openAboutPopup() {
+  document.getElementById('aboutPopup').style.display = 'flex';
+}
+function closeAboutPopup() {
+  document.getElementById('aboutPopup').style.display = 'none';
+}
+</script>
   </section>  <!-- Services Section -->  <section class="services" id="services">
-    <h2>My Services</h2>
-    <div class="services">
+    <a href="webdev-details.html" style="text-decoration: none; color: inherit;">
+  <div class="service-card">
       <div class="card">
         <img src="https://i.ibb.co/fzfN1DcB/vidiq-thumbnail-1.jpg" alt="Website Development">
         <h3>Website Development</h3>
         <p>2000₹ per website (Domain not included)</p>
-      </div>
-      <div class="card">
+      </div> </div>
+</a>
+<a href="video-editing.html" style="text-decoration: none; color: inherit;">
+  <div class="service-card">
+  <div class="card">
         <img src="https://i.ibb.co/3yF1Y13C/vidiq-thumbnail-1-1.jpg" alt="Video Editing">
         <h3>Video Editing</h3>
         <p>15 sec - 100₹<br>30 sec - 200₹<br>Full video - 699₹ (Contact personally)</p>
-      </div>
-      <div class="card">
+  </div> </div>
+</a>
+<a href="photo-editing.html" style="text-decoration: none; color: inherit;">
+  <div class="service-card">
+     <div class="card">
         <img src="https://i.ibb.co/qFgkJFgw/vidiq-thumbnail-1-2.jpg alt="Photo Editing">
         <h3>Photo Editing</h3>
         <p>DM for pricing</p>
       </div>
     </div>
+    <h3>Photo Editing</h3>
+    <p>Custom thumbnails for social media</p>
+  </div>
+</a>
+<div>
+<div>
+<h3>👇 WEBSITES MADE BY US 👇</h3>
   </section>  <!-- Portfolio Marquee -->  <div class="portfolio-marquee">
     <span>Dribble</span>
     <span>Behance</span>
