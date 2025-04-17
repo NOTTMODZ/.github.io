@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Website Development - Nottmodz</title>
+  <style>
+    body {
+      background: #111;
+      color: #fff;
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+    .info-box {
+      background: linear-gradient(145deg, #1a1a1a, #111);
+      border: 1px solid #0f0;
+      border-radius: 20px;
+      padding: 30px;
+      width: 90%;
+      max-width: 550px;
+      box-shadow: 0 0 30px rgba(0, 255, 100, 0.15);
+      margin-bottom: 30px;
+      transition: all 0.3s ease;
+    }
+    .info-box:hover {
+      transform: scale(1.01);
+      box-shadow: 0 0 40px rgba(0, 255, 100, 0.3);
+    }
+    .info-box h2 {
+      margin-top: 0;
+      font-size: 1.7rem;
+      color: #0f0;
+      margin-bottom: 10px;
+    }
+    .info-box ul {
+      line-height: 1.8;
+      color: #ccc;
+      padding-left: 20px;
+    }
+    .info-box p {
+      margin-top: 20px;
+      color: #0f0;
+      font-weight: bold;
+    }
+    .btn {
+      background: #0f0;
+      border: none;
+      padding: 12px 20px;
+      font-size: 1rem;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+      width: 100%;
+    }
+    .btn:hover {
+      transform: scale(1.02);
+      background: #0d0;
+    }
+    .popup {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.85);
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
+    }
+    .popup-content {
+      background: #1a1a1a;
+      padding: 30px;
+      border-radius: 15px;
+      width: 90%;
+      max-width: 500px;
+    }
+    .popup-content input,
+    .popup-content textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      background: #000;
+      border: 1px solid #0f0;
+      color: #0f0;
+      border-radius: 8px;
+    }
+    .popup-content h2 {
+      color: #0f0;
+      margin-top: 0;
+    }
+    .close {
+      float: right;
+      font-size: 20px;
+      cursor: pointer;
+      color: #f00;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Basic Package -->
+  <div class="info-box">
+    <h2>Basic Website Package</h2>
+    <ul>
+      <li>✔️ Static website (custom design)</li>
+      <li>⚠️ No Cpanel access</li>
+      <li>⚠️ No full domain (uses subdomain)</li>
+      <li>✔️ Responsive & mobile-friendly</li>
+      <li>✔️ Delivery: 1-2 Days</li>
+      <li>✔️ Support for 7 days after delivery</li>
+    </ul>
+    <p>Price: ₹2000</p>
+    <button class="btn" onclick="openPopup('Basic Website - ₹2000')">Purchase</button>
+  </div>
+
+  <!-- Premium Package -->
+  <div class="info-box">
+    <h2>Premium Website Package</h2>
+    <ul>
+      <li>✔️ Full domain included</li>
+      <li>✔️ cPanel access</li>
+      <li>✔️ High-end custom design</li>
+      <li>✔️ 24×7 Support</li>
+      <li>✔️ Responsive & mobile-friendly</li>
+      <li>✔️ Hosting + Email setup</li>
+      <li>✔️ Unlimited revisions</li>
+    </ul>
+    <p>Price: ₹3000</p>
+    <button class="btn" onclick="openPopup('Premium Website - ₹3000')">Purchase</button>
+  </div>
+
+  <!-- Cheapest Package -->
+  <div class="info-box">
+    <h2>Cheapest Website (1-Page Only)</h2>
+    <ul>
+      <li>✔️ 1-page basic design</li>
+      <li>✔️ Subdomain only</li>
+      <li>✔️ 1 year hosting</li>
+      <li>❌ No animations or premium design</li>
+      <li>✔️ Delivery within 24 hours</li>
+    </ul>
+    <p>Price: ₹399</p>
+    <button class="btn" onclick="openPopup('1 Page Website - ₹399')">Purchase</button>
+  </div>
+
+  <!-- Popup Form -->
+  <div class="popup" id="popupForm">
+    <div class="popup-content">
+      <span class="close" onclick="closePopup()">&times;</span>
+      <h2>Enter Your Details</h2>
+      <input type="text" id="siteName" placeholder="Website Name">
+      <textarea id="purpose" rows="3" placeholder="Purpose (What's the site about?)"></textarea>
+      <input type="text" id="userName" placeholder="Your Name">
+      <input type="text" id="userMobile" placeholder="Mobile Number">
+      <input type="hidden" id="selectedPackage" value="">
+      <button class="btn" onclick="submitForm()">Submit</button>
+    </div>
+  </div>
+
+  <script>
+    function openPopup(packageName) {
+      document.getElementById('popupForm').style.display = 'flex';
+      document.getElementById('selectedPackage').value = packageName;
+    }
+    function closePopup() {
+      document.getElementById('popupForm').style.display = 'none';
+    }
+    function submitForm() {
+      const site = document.getElementById('siteName').value;
+      const purpose = document.getElementById('purpose').value;
+      const name = document.getElementById('userName').value;
+      const mobile = document.getElementById('userMobile').value;
+      const pack = document.getElementById('selectedPackage').value;
+
+      const message = `*Website Order Request*%0A--------------------%0A*Package:* ${pack}%0A*Website Name:* ${site}%0A*Purpose:* ${purpose}%0A*User Name:* ${name}%0A*Mobile Number:* ${mobile}`;
+      const phone = "919499473347";
+      const whatsappURL = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+
+      window.location.href = whatsappURL;
+    }
+  </script>
+
+</body>
+</html>
