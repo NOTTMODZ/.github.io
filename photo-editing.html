@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Photo Editing - Nottmodz</title>
+  <style>
+    body {
+      background: #111;
+      color: #fff;
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .info-box {
+      background: linear-gradient(145deg, #1a1a1a, #111);
+      border: 1px solid #0f0;
+      border-radius: 20px;
+      padding: 30px;
+      width: 90%;
+      max-width: 550px;
+      box-shadow: 0 0 30px rgba(0, 255, 100, 0.15);
+      margin-bottom: 30px;
+      transition: all 0.3s ease;
+    }
+    .info-box:hover {
+      transform: scale(1.01);
+      box-shadow: 0 0 40px rgba(0, 255, 100, 0.3);
+    }
+    .info-box h2 {
+      color: #0f0;
+      margin-top: 0;
+    }
+    .info-box ul {
+      color: #ccc;
+      padding-left: 20px;
+      line-height: 1.8;
+    }
+    .info-box p {
+      color: #0f0;
+      font-weight: bold;
+      margin-top: 20px;
+    }
+    .btn {
+      background: #0f0;
+      border: none;
+      padding: 12px 20px;
+      font-size: 1rem;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+      width: 100%;
+    }
+    .btn:hover {
+      transform: scale(1.02);
+      background: #0d0;
+    }
+    .popup {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.85);
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
+    }
+    .popup-content {
+      background: #1a1a1a;
+      padding: 30px;
+      border-radius: 15px;
+      width: 90%;
+      max-width: 500px;
+    }
+    .popup-content input,
+    .popup-content textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      background: #000;
+      border: 1px solid #0f0;
+      color: #0f0;
+      border-radius: 8px;
+    }
+    .popup-content h2 {
+      color: #0f0;
+      margin-top: 0;
+    }
+    .close {
+      float: right;
+      font-size: 20px;
+      cursor: pointer;
+      color: #f00;
+    }
+    .note {
+      text-align: center;
+      color: #aaa;
+      font-size: 1rem;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Thumbnail Making -->
+  <div class="info-box">
+    <h2>Thumbnail Making</h2>
+    <ul>
+      <li>✔️ Custom thumbnails for YouTube, Instagram, Facebook, Twitter</li>
+      <li>✔️ Delivered in just 15 minutes</li>
+      <li>✔️ Optimized & Eye-catching design</li>
+    </ul>
+    <p>Price: ₹100</p>
+    <button class="btn" onclick="openPopup('Thumbnail Making - ₹100')">Purchase</button>
+  </div>
+
+  <!-- Coming soon message -->
+  <div class="note">
+    <strong>Currently we have only one service for photo editing.<br/>More services coming soon...</strong>
+  </div>
+
+  <!-- Popup Form -->
+  <div class="popup" id="popupForm">
+    <div class="popup-content">
+      <span class="close" onclick="closePopup()">&times;</span>
+      <h2>Enter Your Details</h2>
+      <input type="text" id="siteName" placeholder="Thumbnail Topic or Text">
+      <textarea id="purpose" rows="3" placeholder="Platform & Style (e.g. YouTube / Dark / Bright / Neon)">
+      </textarea>
+      <input type="text" id="userName" placeholder="Your Name">
+      <input type="text" id="userMobile" placeholder="Mobile Number">
+      <input type="hidden" id="selectedPackage" value="">
+      <button class="btn" onclick="submitForm()">Submit</button>
+    </div>
+  </div>
+
+  <script>
+    function openPopup(packageName) {
+      document.getElementById('popupForm').style.display = 'flex';
+      document.getElementById('selectedPackage').value = packageName;
+    }
+    function closePopup() {
+      document.getElementById('popupForm').style.display = 'none';
+    }
+    function submitForm() {
+      const site = document.getElementById('siteName').value;
+      const purpose = document.getElementById('purpose').value;
+      const name = document.getElementById('userName').value;
+      const mobile = document.getElementById('userMobile').value;
+      const pack = document.getElementById('selectedPackage').value;
+
+      const message = `*Photo Editing Order*%0A--------------------%0A*Service:* ${pack}%0A*Thumbnail Topic:* ${site}%0A*Details:* ${purpose}%0A*Client Name:* ${name}%0A*Mobile:* ${mobile}`;
+      const phone = "919499473347";
+      const whatsappURL = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+
+      window.location.href = whatsappURL;
+    }
+  </script>
+
+</body>
+</html>
