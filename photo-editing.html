@@ -115,51 +115,13 @@
       <li>✔️ Optimized & Eye-catching design</li>
     </ul>
     <p>Price: ₹100</p>
-    <button class="btn" onclick="openPopup('Thumbnail Making - ₹100')">Purchase</button>
+   <button class="btn" onclick="window.location.href='payment.html'">Purchase</button>
   </div>
 
   <!-- Coming soon message -->
   <div class="note">
     <strong>Currently we have only one service for photo editing.<br/>More services coming soon...</strong>
   </div>
-
-  <!-- Popup Form -->
-  <div class="popup" id="popupForm">
-    <div class="popup-content">
-      <span class="close" onclick="closePopup()">&times;</span>
-      <h2>Enter Your Details</h2>
-      <input type="text" id="siteName" placeholder="Thumbnail Topic or Text">
-      <textarea id="purpose" rows="3" placeholder="Platform & Style (e.g. YouTube / Dark / Bright / Neon)">
-      </textarea>
-      <input type="text" id="userName" placeholder="Your Name">
-      <input type="text" id="userMobile" placeholder="Mobile Number">
-      <input type="hidden" id="selectedPackage" value="">
-      <button class="btn" onclick="submitForm()">Submit</button>
-    </div>
-  </div>
-
-  <script>
-    function openPopup(packageName) {
-      document.getElementById('popupForm').style.display = 'flex';
-      document.getElementById('selectedPackage').value = packageName;
-    }
-    function closePopup() {
-      document.getElementById('popupForm').style.display = 'none';
-    }
-    function submitForm() {
-      const site = document.getElementById('siteName').value;
-      const purpose = document.getElementById('purpose').value;
-      const name = document.getElementById('userName').value;
-      const mobile = document.getElementById('userMobile').value;
-      const pack = document.getElementById('selectedPackage').value;
-
-      const message = `*Photo Editing Order*%0A--------------------%0A*Service:* ${pack}%0A*Thumbnail Topic:* ${site}%0A*Details:* ${purpose}%0A*Client Name:* ${name}%0A*Mobile:* ${mobile}`;
-      const phone = "919499473347";
-      const whatsappURL = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
-
-      window.location.href = whatsappURL;
-    }
-  </script>
 
 </body>
 </html>
