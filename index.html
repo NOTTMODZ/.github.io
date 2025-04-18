@@ -1,7 +1,8 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Rao Jatin - Developer Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
   <style>
@@ -20,57 +21,56 @@
       padding: 60px 20px;
       text-align: center;
     }
-    .blade-animation {
-      background: #000;
-      color: #a8ff60;
-      padding: 20px 10px;
-      text-align: center;
-      font-size: 1.1em;
-      border-bottom: 2px solid #2ecc71;
-      overflow: hidden;
-    }
-    .blade-text {
-      display: inline-block;
-      white-space: nowrap;
-      animation: bladeScroll 30s linear infinite;
-    }
-    @keyframes bladeScroll {
-      0% { transform: translateX(100%); }
-      100% { transform: translateX(-100%); }
-    }
     .hero {
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      background-color: #000;
-    }
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #000;
+  text-align: center;
+  padding: 40px 20px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-image: radial-gradient(circle at center, #222 1px, transparent 1px);
+  background-size: 30px 30px;
+  opacity: 0.05;
+  z-index: 0;
+}
+.hero * {
+  position: relative;
+  z-index: 1;
+}
     .hero h1 {
-      font-size: 3em;
+      font-size: 2.5em;
       color: #a8ff60;
       animation: slideIn 1s ease forwards;
     }
     .hero p {
-      font-size: 1.5em;
-      margin: 10px 0;
+      font-size: 1.2em;
       color: #ccc;
       animation: fadeIn 2s ease forwards;
     }
     .hero a {
-      display: inline-block;
-      margin-top: 10px;
-      padding: 10px 25px;
-      font-size: 1em;
-      color: #000;
+      margin-top: 20px;
+      padding: 12px 24px;
       background: #a8ff60;
+      color: #000;
       text-decoration: none;
       border-radius: 8px;
       transition: 0.3s;
+      font-weight: bold;
     }
     .hero a:hover {
       background: #76ff03;
     }
+
     @keyframes slideIn {
       from { transform: translateY(-50px); opacity: 0; }
       to { transform: translateY(0); opacity: 1; }
@@ -79,27 +79,54 @@
       from { opacity: 0; }
       to { opacity: 1; }
     }
+
+    form {
+      max-width: 500px;
+      margin: 30px auto;
+      background: #1e1e1e;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0,255,100,0.3);
+      color: white;
+    }
+    form input, form select, form button {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0 20px;
+      border: none;
+      border-radius: 5px;
+    }
+    form button {
+      background: linear-gradient(to right, #00ff88, #00cc66);
+      color: #000;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
     .about img {
-      max-width: 200px;
+      width: 160px;
+      height: 160px;
+      object-fit: cover;
       border-radius: 50%;
-      border: 5px solid #a8ff60;
-      margin-bottom: 20px;
+      border: 3px solid #0f0;
+      box-shadow: 0 0 15px rgba(0,255,100,0.4);
+      animation: float 3s ease-in-out infinite;
     }
+
     .skills {
-      margin-top: 20px;
-      font-size: 1.1em;
-      line-height: 1.6;
-      color: #aaa;
-      max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
+      font-size: 1rem;
+      line-height: 1.7;
+      max-width: 700px;
+      margin: 20px auto 0;
     }
+
     .services {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 30px;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
       margin-top: 40px;
     }
+
     .card {
       background-color: #1a1a1a;
       border: 2px solid #2ecc71;
@@ -117,14 +144,7 @@
       object-fit: cover;
       border-radius: 10px;
     }
-    .card h3 {
-      margin-top: 15px;
-      color: #a8ff60;
-    }
-    .card p {
-      font-size: 14px;
-      color: #ccc;
-    }
+
     .portfolio-marquee {
       overflow: hidden;
       white-space: nowrap;
@@ -141,20 +161,19 @@
       color: #76ff03;
       animation: marquee 20s linear infinite;
     }
+
     @keyframes marquee {
       from { transform: translateX(100%); }
       to { transform: translateX(-100%); }
     }
-    .contact {
-      padding: 60px 20px;
-      text-align: center;
-    }
+
     .contact a {
       display: block;
-      margin: 10px 0;
+      margin: 8px 0;
       color: #76ff03;
       text-decoration: none;
     }
+
     footer {
       padding: 20px;
       text-align: center;
@@ -162,49 +181,115 @@
       color: #ccc;
       font-size: 0.9em;
     }
+
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0); }
+    }
+
+    #aboutPopup {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.9);
+      z-index: 9999;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #aboutPopup > div {
+      background: #1a1a1a;
+      border-radius: 15px;
+      max-width: 700px;
+      width: 90%;
+      padding: 30px;
+      display: flex;
+      align-items: center;
+      position: relative;
+      box-shadow: 0 0 30px rgba(0,255,0,0.2);
+      flex-wrap: wrap;
+    }
+
+    #aboutPopup img {
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 15px;
+      margin-right: 25px;
+      border: 2px solid #0f0;
+    }
+
+    #aboutPopup span {
+      position: absolute;
+      top: 15px;
+      left: 20px;
+      font-size: 22px;
+      color: red;
+      cursor: pointer;
+    }
+
+    @media screen and (max-width: 600px) {
+      .hero h1 {
+        font-size: 2em;
+      }
+      .hero p {
+        font-size: 1em;
+      }
+      .skills {
+        font-size: 0.9rem;
+      }
+      #aboutPopup > div {
+        flex-direction: column;
+        text-align: center;
+      }
+      #aboutPopup img {
+        margin: 0 0 20px 0;
+      }
+    }
   </style>
 </head>
 <body>
-  </div>  <!-- Hero Section -->  <section class="hero">
-    <p>A Passionate Web & App Developer</p>
-    <h1 style="margin-top: 20px; text-align: center;">Rao Jatin</h1>
-    <a href="#about">View Portfolio</a>
 
-<!-- Portfolio Request Form -->
-<form action="https://formspree.io/f/meoawbkn" method="POST" style="max-width: 500px; margin: 30px auto; background: #1e1e1e; padding: 25px; border-radius: 10px; box-shadow: 0 0 20px rgba(0,255,100,0.3); color: white;">
+<section class="hero">
+  <p>A Passionate Web & App Developer</p>
+  <h1>Rao Jatin</h1>
+  <p style="margin-top: 10px; font-size: 1em; color: #a8ff60;">Frontend + Backend | MERN Stack | Android Modding | Creative Coder</p>
+  <div style="margin-top: 25px;">
+    <a href="#about" style="margin: 5px;">View Portfolio</a>
+    <a href="hire-me.html""#contact" style="margin: 5px; background: transparent; border: 2px solid #a8ff60; color: #a8ff60;">Hire Me</a>
+  </div>
+</section>
+
+<form action="https://formspree.io/f/meoawbkn" method="POST">
   <h2 style="text-align:center; margin-bottom: 20px;">Request a Service</h2>
-
   <label for="service">Select Service:</label>
-  <select name="Service" id="service" required style="width:100%; padding: 10px; margin: 10px 0 20px; border-radius: 5px; border: none;">
+  <select name="Service" id="service" required>
     <option value="Website Building">Website Building</option>
     <option value="Video Editing">Video Editing</option>
     <option value="Photo Editing">Photo Editing</option>
     <option value="Others">Others</option>
   </select>
-
   <label for="mobile">Fill Your Mobile Number:</label>
-  <input type="tel" name="Mobile Number" id="mobile" required pattern="[0-9]{10}" placeholder="Enter 10-digit mobile number" style="width:100%; padding: 10px; margin: 10px 0 20px; border-radius: 5px; border: none;">
-
-  <button type="submit" style="background: linear-gradient(to right, #00ff88, #00cc66); color: black; border: none; padding: 12px 20px; width: 100%; border-radius: 5px; font-weight: bold; cursor: pointer;">Submit</button>
+  <input type="tel" name="Mobile Number" id="mobile" required pattern="[0-9]{10}" placeholder="Enter 10-digit mobile number">
+  <button type="submit">Submit</button>
 </form>
-<!-- ABOUT SECTION -->
-<section class="about" id="about" onclick="openAboutPopup()" style="padding: 60px 20px; text-align: center; background: linear-gradient(145deg, #111, #1a1a1a); color: white; cursor: pointer;">
-  <img src="https://i.ibb.co/VP4P4Z2/Picsart-25-04-17-15-09-20-787.jpg" alt="Rao Jatin" style="width: 160px; height: 160px; object-fit: cover; border-radius: 50%; border: 3px solid #0f0; box-shadow: 0 0 15px rgba(0,255,100,0.4); margin-bottom: 20px; animation: float 3s ease-in-out infinite;">
-  <h2 style="font-size: 2.5rem; margin-bottom: 10px; color: #0f0;">About Me</h2>
-  <p style="font-size: 1.2rem; margin-bottom: 20px;">Developer | Website Maker | Android Guru</p>
-  <div class="skills" style="font-size: 1rem; line-height: 1.7; max-width: 700px; margin: auto;">
-    <strong style="color: #0f0;">Programming Languages:</strong> HTML, CSS, JavaScript, React, Node.js, Java, Python, C, C++, C#, Bash, PHP
-  </div>
+
+<section class="about" id="about" onclick="openAboutPopup()">
+  <img src="https://i.ibb.co/VP4P4Z2/Picsart-25-04-17-15-09-20-787.jpg" alt="Rao Jatin">
+  <h2 style="color:#0f0;">About Me</h2>
+  <p>Developer | Website Maker | Android Guru</p>
+  <div class="skills"><strong style="color:#0f0;">Programming Languages:</strong> HTML, CSS, JavaScript, React, Node.js, Java, Python, C, C++, C#, Bash, PHP</div>
 </section>
 
-<!-- ABOUT POPUP -->
-<div id="aboutPopup" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 9999; justify-content: center; align-items: center;">
-  <div style="background: #1a1a1a; border-radius: 15px; max-width: 700px; width: 90%; padding: 30px; display: flex; align-items: center; position: relative; box-shadow: 0 0 30px rgba(0,255,0,0.2);">
-    <span onclick="closeAboutPopup()" style="position: absolute; top: 15px; left: 20px; font-size: 22px; color: red; cursor: pointer;">&times;</span>
-    <img src="https://i.ibb.co/VP4P4Z2/Picsart-25-04-17-15-09-20-787.jpg" alt="Rao Jatin" style="width: 150px; height: 150px; object-fit: cover; border-radius: 15px; margin-right: 25px; border: 2px solid #0f0;">
-    <div style="color: white;">
-      <h2 style="color: #0f0; margin-top: 0;">Rao Jatin</h2>
-      <ul style="list-style: none; padding-left: 0; line-height: 1.8;">
+<div id="aboutPopup">
+  <div>
+    <span onclick="closeAboutPopup()">&times;</span>
+    <img src="https://i.ibb.co/VP4P4Z2/Picsart-25-04-17-15-09-20-787.jpg" alt="Rao Jatin">
+    <div>
+      <h2 style="color: #0f0;">Rao Jatin</h2>
+      <ul style="list-style:none; padding:0; color:white;">
         <li>• Developer</li>
         <li>• Editor</li>
         <li>• From Haryana</li>
@@ -216,16 +301,57 @@
   </div>
 </div>
 
-<!-- FLOAT ANIMATION -->
-<style>
-@keyframes float {
-  0% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
-  100% { transform: translateY(0); }
-}
-</style>
+<section class="services" id="services">
+  <a href="webdev-details.html" style="text-decoration: none; color: inherit;">
+    <div class="card">
+      <img src="https://i.ibb.co/fzfN1DcB/vidiq-thumbnail-1.jpg" alt="Website Development">
+      <h3>Website Development</h3>
+      <p>2000₹ per website (Domain not included)</p>
+    </div>
+  </a>
+  <a href="video-editing.html" style="text-decoration: none; color: inherit;">
+    <div class="card">
+      <img src="https://i.ibb.co/3yF1Y13C/vidiq-thumbnail-1-1.jpg" alt="Video Editing">
+      <h3>Video Editing</h3>
+      <p>15 sec - 100₹<br>30 sec - 200₹<br>Full video - 699₹ (Contact personally)</p>
+    </div>
+  </a>
+  <a href="photo-editing.html" style="text-decoration: none; color: inherit;">
+    <div class="card">
+      <img src="https://i.ibb.co/qFgkJFgw/vidiq-thumbnail-1-2.jpg" alt="Photo Editing">
+      <h3>Photo Editing</h3>
+      <p>DM for pricing</p>
+    </div>
+  </a>
+</section>
 
-<!-- POPUP SCRIPT -->
+<div class="portfolio-marquee">
+  <span>Dribble</span>
+  <span>Behance</span>
+  <span>GitHub</span>
+  <span>CodePen</span>
+  <span>Nottmodz</span>
+  <span>MobieArena</span>
+  <span>Fiverr</span>
+  <span>Upwork</span>
+  <span>LinkedIn</span>
+</div>
+
+<section class="contact" id="contact">
+  <h2>Contact Me</h2>
+  <a href="mailto:jatinhelpline89@gmail.com">Email: jatinhelpline89@gmail.com</a>
+  <a href="https://www.instagram.com/noturjatin?igsh=azNnaW0ydzl1a240">Instagram</a>
+  <a href="https://t.me/@raojatinhere">Telegram</a>
+  <a href="https://wa.me/919499473347">WhatsApp</a>
+  <a href="https://www.linkedin.com/in/rao-jatin-b58767349">LinkedIn</a>
+  <p>Location: Connaught Place, Delhi, India</p>
+</section>
+
+<footer>
+  Calm Team Nottmodz © 2025 — All rights reserved<br>
+  <a href="#">Privacy Policy</a>
+</footer>
+
 <script>
 function openAboutPopup() {
   document.getElementById('aboutPopup').style.display = 'flex';
@@ -234,60 +360,6 @@ function closeAboutPopup() {
   document.getElementById('aboutPopup').style.display = 'none';
 }
 </script>
-  </section>  <!-- Services Section -->  <section class="services" id="services">
-    <a href="webdev-details.html" style="text-decoration: none; color: inherit;">
-  <div class="service-card">
-      <div class="card">
-        <img src="https://i.ibb.co/fzfN1DcB/vidiq-thumbnail-1.jpg" alt="Website Development">
-        <h3>Website Development</h3>
-        <p>2000₹ per website (Domain not included)</p>
-      </div> </div>
-</a>
-<a href="video-editing.html" style="text-decoration: none; color: inherit;">
-  <div class="service-card">
-  <div class="card">
-        <img src="https://i.ibb.co/3yF1Y13C/vidiq-thumbnail-1-1.jpg" alt="Video Editing">
-        <h3>Video Editing</h3>
-        <p>15 sec - 100₹<br>30 sec - 200₹<br>Full video - 699₹ (Contact personally)</p>
-  </div> </div>
-</a>
-<a href="photo-editing.html" style="text-decoration: none; color: inherit;">
-  <div class="service-card">
-     <div class="card">
-        <img src="https://i.ibb.co/qFgkJFgw/vidiq-thumbnail-1-2.jpg alt="Photo Editing">
-        <h3>Photo Editing</h3>
-        <p>DM for pricing</p>
-      </div>
-    </div>
-    <h3>Photo Editing</h3>
-    <p>Custom thumbnails for social media</p>
-  </div>
-</a>
-<div>
-<div>
-<h3>👇 WEBSITES MADE BY US 👇</h3>
-  </section>  <!-- Portfolio Marquee -->  <div class="portfolio-marquee">
-    <span>Dribble</span>
-    <span>Behance</span>
-    <span>GitHub</span>
-    <span>CodePen</span>
-    <span>Nottmodz</span>
-    <span>MobieArena</span>
-    <span>Fiverr</span>
-    <span>Upwork</span>
-    <span>LinkedIn</span>
-  </div>  <!-- Contact Section -->  <section class="contact" id="contact">
-    <h2>Contact Me</h2>
-    <a href="mailto:jatinhelpline89@gmail.com">Email: jatinhelpline89@gmail.com</a>
-    <a href="https://www.instagram.com/noturjatin?igsh=azNnaW0ydzl1a240">Instagram</a>
-    <a href="https://t.me/@raojatinhere">Telegram</a>
-    <a href="https://wa.me/919499473347">WhatsApp</a>
-    <a href="https://www.linkedin.com/in/rao-jatin-b58767349?utm_source"
-      >LinkedIn</a>
-    <p>Location: Connaught Place, Delhi, India</p>
-  </section>  <!-- Footer -->  <footer>
-    Calm Team Nottmodz © 2025 — All rights reserved<br>
-    <a href="#">Privacy Policy</a>
-  </footer>
+
 </body>
 </html>
