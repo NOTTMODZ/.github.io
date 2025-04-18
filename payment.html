@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Payment Form</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background: #0d0d0d;
+      font-family: 'Poppins', sans-serif;
+      color: #00ff88;
+      padding: 30px;
+    }
+
+    .payment-box {
+      max-width: 600px;
+      margin: auto;
+      background: #121212;
+      border: 2px solid #00ff88;
+      border-radius: 12px;
+      padding: 25px;
+      box-shadow: 0 0 20px #00ff8840;
+      animation: fadeIn 1s ease;
+    }
+
+    h2 {
+      text-align: center;
+      color: #00ff88;
+      font-weight: 600;
+      text-shadow: 0 0 5px #00ff88;
+    }
+
+    label {
+      display: block;
+      margin-top: 20px;
+      font-weight: 600;
+    }
+
+    input, select {
+      display: block;
+      margin: 8px auto;
+      width: 90%;
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #00ff88;
+      background: #1e1e1e;
+      color: #00ff88;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    input.error, select.error {
+      border-color: red;
+      animation: shake 0.3s ease-in-out;
+    }
+
+    .price-tag {
+      margin-top: 15px;
+      font-size: 18px;
+      font-weight: 600;
+      color: #00ff88;
+      text-align: center;
+    }
+
+    .qr-box {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .qr-box img {
+      width: 250px;
+      border-radius: 10px;
+      border: 2px solid #00ff88;
+      box-shadow: 0 0 15px #00ff8850;
+    }
+
+    .timer {
+      margin-top: 10px;
+      font-size: 16px;
+      font-weight: 600;
+      color: #ff4d4d;
+    }
+
+    button {
+      margin-top: 25px;
+      width: 100%;
+      padding: 12px;
+      background: #00ff88;
+      color: #000;
+      font-weight: 700;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      box-shadow: 0 0 10px #00ff88;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    @keyframes shake {
+      0% { transform: translateX(0); }
+      25% { transform: translateX(-5px); }
+      50% { transform: translateX(5px); }
+      75% { transform: translateX(-5px); }
+      100% { transform: translateX(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="payment-box">
+    <h2>Payment</h2>
+    <form id="paymentForm" action="https://formspree.io/f/xpwpgdol" method="POST" novalidate>
+      <label for="name">Your Name</label>
+      <input type="text" name="name" id="name" required />
+
+      <label for="service">Select Service</label>
+      <select name="service" id="service" required onchange="updatePrice()">
+        <option value="">-- Choose a service --</option>
+        <option value="Basic Website Package">Basic Website Package</option>
+        <option value="Premium Website Package">Premium Website Package</option>
+        <option value="Cheapest Website (1-Page Only)">Cheapest Website (1-Page Only)</option>
+        <option value="15 Seconds Video Editing">15 Seconds Video Editing</option>
+        <option value="30 Seconds Full Effects Video">30 Seconds Full Effects Video</option>
+        <option value="Custom Video Editing (10–15 min)">Custom Video Editing (10–15 min)</option>
+        <option value="Thumbnail Making">Thumbnail Making</option>
+      </select>
+
+      <div class="price-tag" id="price">Amount: ₹0</div>
+
+      <div class="qr-box">
+        <img src="https://i.ibb.co/mCV6LTDR/Picsart-25-03-03-13-42-58-154.jpg" alt="UPI QR Code" />
+        <div class="timer">QR is valid for <span id="countdown">5:00</span> minutes</div>
+      </div>
+
+      <label for="utr">Enter UTR / Transaction ID</label>
+      <input type="text" name="utr" id="utr" required />
+
+      <label for="mobile">Your Mobile Number</label>
+      <input type="tel" name="mobile" id="mobile" required pattern="[0-9]{10}" placeholder="10-digit mobile number" />
+
+      <button type="submit">Submit Payment Details</button>
+    </form>
+  </div>
+
+  <script>
+    const priceMap = {
+      "Basic Website Package": 2000,
+      "Premium Website Package": 3000,
+      "Cheapest Website (1-Page Only)": 399,
+      "15 Seconds Video Editing": 100,
+      "30 Seconds Full Effects Video": 200,
+      "Custom Video Editing (10–15 min)": 599,
+      "Thumbnail Making": 100
+    };
+
+    function updatePrice() {
+      const service = document.getElementById("service").value;
+      const price = priceMap[service] || 0;
+      document.getElementById("price").innerText = `Amount: ₹${price}`;
+    }
+
+    // Countdown Timer
+    let timeLeft = 300;
+    const countdownEl = document.getElementById("countdown");
+
+    function updateCountdown() {
+      const minutes = Math.floor(timeLeft / 60);
+      const seconds = timeLeft % 60;
+      countdownEl.textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+      if (timeLeft > 0) timeLeft--;
+    }
+
+    setInterval(updateCountdown, 1000);
+
+    // Form Validation with shake effect
+    const form = document.getElementById("paymentForm");
+
+    form.addEventListener("submit", function(e) {
+      let valid = true;
+      const fields = ["name", "service", "utr", "mobile"];
+
+      fields.forEach(id => {
+        const field = document.getElementById(id);
+        if (!field.value.trim()) {
+          field.classList.add("error");
+          valid = false;
+        } else {
+          field.classList.remove("error");
+        }
+      });
+
+      if (!valid) {
+        e.preventDefault();
+      }
+    });
+  </script>
+</body>
+</html>
