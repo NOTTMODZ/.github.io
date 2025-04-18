@@ -109,7 +109,7 @@
       <li>✔️ Fast Delivery</li>
     </ul>
     <p>Price: ₹100</p>
-    <button class="btn" onclick="openPopup('15 Sec Video Editing - ₹100')">Purchase</button>
+    <button class="btn" onclick="window.location.href='payment.html'">Purchase</button>
   </div>
 
   <!-- 30 sec -->
@@ -121,7 +121,7 @@
       <li>✔️ 2K to 4K resolution supported</li>
     </ul>
     <p>Price: ₹200</p>
-    <button class="btn" onclick="openPopup('30 Sec Motion Video - ₹200')">Purchase</button>
+    <button class="btn" onclick="window.location.href='payment.html'">Purchase</button>
   </div>
 
   <!-- Custom video -->
@@ -134,45 +134,8 @@
       <li>✔️ Based on your content and demand</li>
     </ul>
     <p>Price: ₹599</p>
-    <button class="btn" onclick="openPopup('Custom Video Editing - ₹599')">Purchase</button>
+    <button class="btn" onclick="window.location.href='payment.html'">Purchase</button>
   </div>
-
-  <!-- Popup Form -->
-  <div class="popup" id="popupForm">
-    <div class="popup-content">
-      <span class="close" onclick="closePopup()">&times;</span>
-      <h2>Enter Your Details</h2>
-      <input type="text" id="siteName" placeholder="Video Title or File Name">
-      <textarea id="purpose" rows="3" placeholder="Purpose (What style/effects you want?)"></textarea>
-      <input type="text" id="userName" placeholder="Your Name">
-      <input type="text" id="userMobile" placeholder="Mobile Number">
-      <input type="hidden" id="selectedPackage" value="">
-      <button class="btn" onclick="submitForm()">Submit</button>
-    </div>
-  </div>
-
-  <script>
-    function openPopup(packageName) {
-      document.getElementById('popupForm').style.display = 'flex';
-      document.getElementById('selectedPackage').value = packageName;
-    }
-    function closePopup() {
-      document.getElementById('popupForm').style.display = 'none';
-    }
-    function submitForm() {
-      const site = document.getElementById('siteName').value;
-      const purpose = document.getElementById('purpose').value;
-      const name = document.getElementById('userName').value;
-      const mobile = document.getElementById('userMobile').value;
-      const pack = document.getElementById('selectedPackage').value;
-
-      const message = `*Video Editing Order*%0A--------------------%0A*Package:* ${pack}%0A*Video Title:* ${site}%0A*Details:* ${purpose}%0A*Client Name:* ${name}%0A*Mobile:* ${mobile}`;
-      const phone = "919499473347";
-      const whatsappURL = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
-
-      window.location.href = whatsappURL;
-    }
-  </script>
 
 </body>
 </html>
