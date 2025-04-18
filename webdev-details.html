@@ -115,7 +115,7 @@
       <li>✔️ Support for 7 days after delivery</li>
     </ul>
     <p>Price: ₹2000</p>
-    <button class="btn" onclick="openPopup('Basic Website - ₹2000')">Purchase</button>
+    <button class="btn" onclick="window.location.href='payment.html'">Purchase</button>
   </div>
 
   <!-- Premium Package -->
@@ -131,7 +131,7 @@
       <li>✔️ Unlimited revisions</li>
     </ul>
     <p>Price: ₹3000</p>
-    <button class="btn" onclick="openPopup('Premium Website - ₹3000')">Purchase</button>
+    <button class="btn" onclick="window.location.href='payment.html'">Purchase</button>
   </div>
 
   <!-- Cheapest Package -->
@@ -145,45 +145,8 @@
       <li>✔️ Delivery within 24 hours</li>
     </ul>
     <p>Price: ₹399</p>
-    <button class="btn" onclick="openPopup('1 Page Website - ₹399')">Purchase</button>
+    <button class="btn" onclick="window.location.href='payment.html'">Purchase</button>
   </div>
-
-  <!-- Popup Form -->
-  <div class="popup" id="popupForm">
-    <div class="popup-content">
-      <span class="close" onclick="closePopup()">&times;</span>
-      <h2>Enter Your Details</h2>
-      <input type="text" id="siteName" placeholder="Website Name">
-      <textarea id="purpose" rows="3" placeholder="Purpose (What's the site about?)"></textarea>
-      <input type="text" id="userName" placeholder="Your Name">
-      <input type="text" id="userMobile" placeholder="Mobile Number">
-      <input type="hidden" id="selectedPackage" value="">
-      <button class="btn" onclick="submitForm()">Submit</button>
-    </div>
-  </div>
-
-  <script>
-    function openPopup(packageName) {
-      document.getElementById('popupForm').style.display = 'flex';
-      document.getElementById('selectedPackage').value = packageName;
-    }
-    function closePopup() {
-      document.getElementById('popupForm').style.display = 'none';
-    }
-    function submitForm() {
-      const site = document.getElementById('siteName').value;
-      const purpose = document.getElementById('purpose').value;
-      const name = document.getElementById('userName').value;
-      const mobile = document.getElementById('userMobile').value;
-      const pack = document.getElementById('selectedPackage').value;
-
-      const message = `*Website Order Request*%0A--------------------%0A*Package:* ${pack}%0A*Website Name:* ${site}%0A*Purpose:* ${purpose}%0A*User Name:* ${name}%0A*Mobile Number:* ${mobile}`;
-      const phone = "919499473347";
-      const whatsappURL = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
-
-      window.location.href = whatsappURL;
-    }
-  </script>
 
 </body>
 </html>
